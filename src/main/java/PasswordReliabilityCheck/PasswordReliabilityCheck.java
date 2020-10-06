@@ -4,7 +4,7 @@ public class PasswordReliabilityCheck {
 
     public boolean apply(String password){
 
-        if(isLongEnought(password) && containsNumber(password) && containsUpperCase(password)) return true;
+        if(isLongEnought(password) && containsNumber(password) && containsUpperAndLowerCase(password)) return true;
         return false;
     }
 
@@ -20,10 +20,14 @@ public class PasswordReliabilityCheck {
         return false;
     }
 
-    public boolean containsUpperCase(String password){
+    public boolean containsUpperAndLowerCase(String password){
+        boolean upper = false;
+        boolean lower  = false;
         for(char c: password.toCharArray()){
-            if(Character.isUpperCase(c)) return true;
+            if(Character.isUpperCase(c)) upper = true;
+            if(Character.isLowerCase(c)) lower = true;
         }
+        if(upper && lower)return true;
         return false;
     }
 }
