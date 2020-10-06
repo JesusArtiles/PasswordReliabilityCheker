@@ -2,25 +2,28 @@ package PasswordReliabilityCheck;
 
 public class PasswordReliabilityCheck {
 
-    public boolean apply(String password){
+    String password;
 
-        if(isLongEnought(password) && containsNumber(password) && containsUpperAndLowerCase(password) && containsUnderscore(password)) return true;
+    public boolean apply(String password){
+        this.password = password;
+
+        if(isLongEnought() && containsNumber() && containsUpperAndLowerCase() && containsUnderscore()) return true;
         return false;
     }
 
-    public boolean isLongEnought(String password){
+    public boolean isLongEnought(){
         if(password.length() < 6) return false;
         return true;
     }
 
-    public boolean containsNumber(String password){
+    public boolean containsNumber(){
         for(char c: password.toCharArray()){
             if(Character.isDigit(c)) return true;
         }
         return false;
     }
 
-    public boolean containsUpperAndLowerCase(String password){
+    public boolean containsUpperAndLowerCase(){
         boolean upper = false;
         boolean lower  = false;
         for(char c: password.toCharArray()){
@@ -31,7 +34,7 @@ public class PasswordReliabilityCheck {
         return false;
     }
 
-    public boolean containsUnderscore(String password){
+    public boolean containsUnderscore(){
         for(char c: password.toCharArray()){
             if(c == '_') return true;
         }
