@@ -17,4 +17,10 @@ public class PasswordReliabilityCheckShould {
         assertThat(result).isTrue();
     }
 
+    @Test
+    public void return_false_if_password_does_not_contain_any_number(){
+        Boolean result = new PasswordReliabilityCheck().apply("HelloWorld");
+        assertThat(result).isFalse();
+    }
+
 }
