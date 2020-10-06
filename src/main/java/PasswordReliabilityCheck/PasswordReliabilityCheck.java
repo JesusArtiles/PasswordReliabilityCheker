@@ -2,7 +2,7 @@ package PasswordReliabilityCheck;
 
 public class PasswordReliabilityCheck {
 
-    String password;
+    private String password;
 
     public boolean apply(String password){
         this.password = password;
@@ -11,19 +11,19 @@ public class PasswordReliabilityCheck {
         return false;
     }
 
-    public boolean isLongEnought(){
+    private boolean isLongEnought(){
         if(password.length() < 6) return false;
         return true;
     }
 
-    public boolean containsNumber(){
+    private boolean containsNumber(){
         for(char c: password.toCharArray()){
             if(Character.isDigit(c)) return true;
         }
         return false;
     }
 
-    public boolean containsUpperAndLowerCase(){
+    private boolean containsUpperAndLowerCase(){
         boolean upper = false;
         boolean lower  = false;
         for(char c: password.toCharArray()){
@@ -34,7 +34,7 @@ public class PasswordReliabilityCheck {
         return false;
     }
 
-    public boolean containsUnderscore(){
+    private boolean containsUnderscore(){
         for(char c: password.toCharArray()){
             if(c == '_') return true;
         }
