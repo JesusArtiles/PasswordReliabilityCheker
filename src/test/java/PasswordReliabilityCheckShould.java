@@ -23,4 +23,10 @@ public class PasswordReliabilityCheckShould {
         assertThat(result).isFalse();
     }
 
+    @Test
+    public void return_false_if_password_does_not_contain_any_upperCase(){
+        Boolean result = new PasswordReliabilityCheck().apply("helloworld1");
+        assertThat(result).isFalse();
+    }
+
 }
