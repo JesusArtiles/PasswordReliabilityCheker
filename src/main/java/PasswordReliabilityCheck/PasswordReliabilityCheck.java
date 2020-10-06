@@ -4,7 +4,7 @@ public class PasswordReliabilityCheck {
 
     public boolean apply(String password){
 
-        if(isLongEnought(password) && containsNumber(password) && containsUpperAndLowerCase(password)) return true;
+        if(isLongEnought(password) && containsNumber(password) && containsUpperAndLowerCase(password) && containsUnderscore(password)) return true;
         return false;
     }
 
@@ -28,6 +28,13 @@ public class PasswordReliabilityCheck {
             if(Character.isLowerCase(c)) lower = true;
         }
         if(upper && lower)return true;
+        return false;
+    }
+
+    public boolean containsUnderscore(String password){
+        for(char c: password.toCharArray()){
+            if(c == '_') return true;
+        }
         return false;
     }
 }
