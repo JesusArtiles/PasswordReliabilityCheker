@@ -11,4 +11,10 @@ public class PasswordReliabilityCheckShould {
         assertThat(result).isFalse();
     }
 
+    @Test
+    public void return_true_if_at_least_6_characters(){
+        Boolean result = new PasswordReliabilityCheck().apply("Hello123");
+        assertThat(result).isTrue();
+    }
+
 }
